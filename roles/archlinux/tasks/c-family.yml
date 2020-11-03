@@ -1,0 +1,8 @@
+---
+- name: install C/C++ development tools
+  pacman:
+    name:
+      - base-devel
+      - gdb
+      - valgrind
+  become: true

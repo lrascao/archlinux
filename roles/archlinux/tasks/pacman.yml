@@ -1,0 +1,41 @@
+---
+- name: update pacman cache
+  pacman:
+    update_cache: true
+  become: true
+
+- name: install pacman tools
+  pacman:
+    name:
+    - pacman-contrib
+    - patch
+  become: true
+
+- name: install reflector
+  pacman:
+    name: reflector
+  become: true
+
+- name: update pacman mirrorlist
+  script: update-mirrorlist.sh
+  become: true
+
+- name: install base metapackage
+  pacman:
+    name: base
+  become: true
+
+- name: perform full upgrade
+  pacman:
+    upgrade: true
+    update_cache: true
+  become: true
+
+- name: Update pacman package cache
+  pacman:
+    update_cache: yes
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+

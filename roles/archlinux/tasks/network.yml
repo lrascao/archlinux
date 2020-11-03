@@ -1,0 +1,8 @@
+---
+- name: install networking tools
+  pacman:
+    name:
+      - netctl
+      - openvpn
+      - ppp
+  become: true

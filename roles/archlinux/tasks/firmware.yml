@@ -1,0 +1,10 @@
+---
+- name: install firmware
+  pacman:
+    name: linux-firmware
+  become: true
+
+- name: install amd ucode
+  pacman:
+    name: amd-ucode
+  become: true

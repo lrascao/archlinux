@@ -1,0 +1,34 @@
+---
+- name: install i3
+  pacman:
+    name:
+      - xorg
+      - xorg-server
+      - xorg-xinit
+      - xorg-xrandr
+      - xterm
+      - xbindkeys
+      - xsel
+      - i3-wm
+      - i3lock
+      - dmenu
+      - xcompmgr
+      - feh
+  become: true
+
+- name: create i3 configuration directory
+  file:
+    name: /home/{{ archlinux_username }}/.config/i3
+    state: directory
+    owner: "{{ archlinux_username }}"
+    group: users
+  become: true
+
+- name: configure i3
+  template:
+    src: i3/config
+    dest: /home/{{ archlinux_username }}/.config/i3/
+    owner: "{{ archlinux_username }}"
+    group: users
+  become: true
+

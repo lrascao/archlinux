@@ -1,0 +1,50 @@
+---
+- name: install Docker
+  pacman:
+    name: docker
+  become: true
+
+- name: configure Docker user namespace remap range
+  copy:
+    dest: /etc/subuid
+    content: |
+      dockremap:165536:4096
+    mode: 0644
+  notify:
+    - restart docker
+  become: true
+
+- name: configure Docker group namespace remap range
+  copy:
+    dest: /etc/subgid
+    content: |
+      dockremap:165536:4096
+    mode: 0644
+  notify:
+    - restart docker
+  become: true
+
+- name: create /etc/docker directory
+  file:
+    path: /etc/docker
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+
+- name: configure Docker daemon
+  copy:
+    src: daemon.json
+    dest: /etc/docker/daemon.json
+    mode: 0644
+  notify:
+    - restart docker
+  become: true
+
+- name: enable Docker daemon
+  systemd:
+    name: docker.service
+    state: started
+    enabled: true
+  become: true

@@ -1,0 +1,27 @@
+---
+- name: POLYBAR | install polybar from AUR
+  aur:
+    name: polybar
+    user: "{{ archlinux_username }}"
+  register: installresult
+
+- name: POLYBAR | copy configuration files 1/2
+  template:
+    src: polybar/config
+    dest: /home/{{ archlinux_username }}/.config/polybar/
+    owner: "{{ archlinux_username }}"
+    group: users
+  become: true
+
+- name: POLYBAR | copy configuration files 2/2
+  copy:
+    src: polybar/launch.sh
+    dest: /home/{{ archlinux_username }}/.config/polybar/
+    owner: "{{ archlinux_username }}"
+    group: users
+  become: true
+
+- name: POLYBAR | Set u+x polybar config file
+  file: 
+    path: /home/{{ archlinux_username }}/.config/polybar/launch.sh
+    mode: "u+x"

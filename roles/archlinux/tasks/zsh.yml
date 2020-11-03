@@ -1,0 +1,35 @@
+---
+
+- name: install zsh
+  pacman:
+    name:
+    - zsh
+  become: true
+
+- name: Install zsh addons from AUR
+  aur: name={{ item }} user={{ archlinux_username }}
+  with_items:
+    - zplug
+    - oh-my-zsh-git
+    - oh-my-zsh-powerline-theme-git
+
+- name: Ensure the cache folder with oh-my-zsh subfolder is present
+  file:
+    path: /home/{{ archlinux_username }}/.cache/oh-my-zsh
+    owner: "{{ archlinux_username }}"
+    group: "users"
+    state: directory
+    mode: 0755
+
+- name: Ensure the last working dir file for oh-my-zsh is present
+  file:
+    path: /home/{{ archlinux_username }}/.cache/oh-my-zsh/last-working-dir
+    owner: "{{ archlinux_username }}"
+    group: "users"
+    state: touch
+
+- name: change user shell to zsh 
+  user:
+    name: "{{ archlinux_username }}"
+    shell: /bin/zsh
+  become: true
