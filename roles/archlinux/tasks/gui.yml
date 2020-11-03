@@ -1,0 +1,30 @@
+---
+- name: install fonts
+  pacman:
+    name:
+      - adobe-source-code-pro-fonts
+      - adobe-source-han-sans-jp-fonts
+      - noto-fonts
+      - noto-fonts-emoji
+      - powerline-fonts
+      - ttf-dejavu
+      - ttf-droid
+      - ttf-inconsolata
+      - ttf-liberation
+  become: true
+
+- name: install display configuration tools
+  pacman:
+    name:
+      - arandr
+      - lxrandr
+  become: true
+
+- name: install GUI themes
+  pacman:
+    name:
+      - elementary-icon-theme
+      - gnome-themes-extra
+      - lxappearance
+      - xcursor-premium
+  become: true

@@ -1,0 +1,49 @@
+---
+- name: create normal user
+  user:
+    name: "{{ archlinux_username }}"
+    create_home: true
+    group: users
+    groups:
+      - wheel
+      - docker
+  become: true
+
+- name: create scripts directory
+  file:
+    name: /home/{{ archlinux_username }}/bin
+    state: directory
+    owner: "{{ archlinux_username }}"
+    group: users
+  become: true
+  become_user: "{{ archlinux_username }}"
+
+- name: copy dotfiles
+  copy:
+    src: "{{item}}"
+    dest: /home/{{ archlinux_username}}/.{{item}}
+    owner: "{{ archlinux_username }}"
+    group: users
+  with_items:
+    - xinitrc
+  become: true
+  become_user: "{{ archlinux_username }}"
+
+- name: template dotfiles
+  template:
+    src: "{{item}}"
+    dest: /home/{{ archlinux_username}}/.{{item}}
+    owner: "{{ archlinux_username }}"
+    group: users
+  with_items:
+    - Xresources
+  become: true
+  become_user: "{{ archlinux_username }}"
+
+- name: install shell colorschemes
+  git:
+    repo: "https://github.com/dharmab/base16-shell.git"
+    dest: /home/{{ archlinux_username }}/.config/base16-shell
+    version: master
+  become: true
+  become_user: "{{ archlinux_username }}"

@@ -1,0 +1,7 @@
+---
+- name: install rust development tools
+  pacman:
+    name:
+      - rust
+  become: true
+

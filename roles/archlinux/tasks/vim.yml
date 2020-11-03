@@ -1,0 +1,43 @@
+---
+- name: remove vim minimal package
+  pacman:
+    name: vim
+    state: absent
+    force: true
+  become: true
+  ignore_errors: true
+
+- name: install vim
+  pacman:
+    name: gvim
+  become: true
+
+- name: create vim autoload directory
+  file:
+    path: "/home/{{ archlinux_username }}/.vim/autoload"
+    owner: "{{ archlinux_username }}"
+    group: users
+    state: directory
+  become: true
+  become_user: "{{ archlinux_username }}"
+
+- name: install latest vim-plug
+  get_url:
+    url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+    dest: "/home/{{ archlinux_username }}/.vim/autoload/plug.vim"
+  become: true
+  become_user: "{{ archlinux_username }}"
+
+# - name: configure .vimrc
+#   copy:
+#     src: vimrc
+#     dest: /home/{{ archlinux_username }}/.vimrc
+#     owner: "{{ archlinux_username }}"
+#     group: users
+#   become: true
+#   become_user: "{{ archlinux_username }}"
+
+- name: install and update Vim plugins
+  command: "/usr/bin/vim +PlugUpdate +qall!"
+  become: true
+  become_user: "{{ archlinux_username }}"

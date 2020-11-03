@@ -1,0 +1,13 @@
+---
+- name: install tmux
+  pacman:
+    name:
+      - tmux
+  become: true
+
+- name: install alacritty
+  pacman:
+    name:
+      - alacritty
+  become: true
+
