@@ -13,6 +13,17 @@
       - ttf-liberation
   become: true
 
+- name: copy fonts
+  copy:
+    src: "{{item}}"
+    dest: /home/{{ archlinux_username}}/.local/share/fonts/{{item}}
+    owner: "{{ archlinux_username }}"
+    group: users
+  with_items:
+    - fonts/monaco.ttf
+  become: true
+  become_user: "{{ archlinux_username }}"
+
 - name: install display configuration tools
   pacman:
     name:
