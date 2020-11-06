@@ -29,6 +29,7 @@
     - alacritty
     - tmux.conf
     - vimrc
+    - tigrc
   become: true
   become_user: "{{ archlinux_username }}"
 
