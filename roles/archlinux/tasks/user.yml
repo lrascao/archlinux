@@ -26,6 +26,9 @@
     group: users
   with_items:
     - xinitrc
+    - alacritty
+    - tmux.conf
+    - vimrc
   become: true
   become_user: "{{ archlinux_username }}"
 
