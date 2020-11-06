@@ -5,6 +5,7 @@
       - xorg
       - xorg-xinit
       - xterm
+      - xbindkeys
       - i3-wm
       - i3lock
       - i3status
