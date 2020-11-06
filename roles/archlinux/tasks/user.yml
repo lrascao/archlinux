@@ -26,7 +26,7 @@
     group: users
   with_items:
     - xinitrc
-    - alacritty
+    - alacritty.yml
     - tmux.conf
     - vimrc
     - tigrc
