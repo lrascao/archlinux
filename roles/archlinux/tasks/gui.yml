@@ -13,10 +13,19 @@
       - ttf-liberation
   become: true
 
+- name: create user fonts dir
+  file:
+    name: /home/{{ archlinux_username }}/.local/share/fonts
+    state: directory
+    owner: "{{ archlinux_username }}"
+    group: users
+  become: true
+  become_user: "{{ archlinux_username }}"
+
 - name: copy fonts
   copy:
     src: "{{item}}"
-    dest: /home/{{ archlinux_username}}/.local/share/fonts/{{item}}
+    dest: /home/{{ archlinux_username}}/.local/share/{{item}}
     owner: "{{ archlinux_username }}"
     group: users
   with_items:
