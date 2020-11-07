@@ -2,7 +2,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# Set modifier key (Command/Mac)
+# Set modifier key (Super)
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -135,6 +135,9 @@ bindsym $mod+r mode "resize"
 # Lock the computer with a black screen
 bindsym $mod+b exec "i3lock -c 000000"
 
+# No window title bars
+for_window 
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -145,8 +148,9 @@ bar {
     status_command i3status --config ~/.i3/i3status
 }
 
-# Set the wallpaper using feh
-exec /usr/bin/sh /home/{{ archlinux_username }}/.fehbg &
+# Hide windows title bar
+for_window [class="^.*"] border pixel 1
+new_windows 1pixel
 
 # Configure media keys
 exec xbindkeys

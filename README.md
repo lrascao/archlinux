@@ -48,3 +48,5 @@ ansible-playbook --ask-become-pass site.yml
 
 $ xrandr --output <output> --rotate left
 
+## Configure UHK
+/etc/udev/rules.d/50-uhk60.rules
