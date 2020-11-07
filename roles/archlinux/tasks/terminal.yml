@@ -5,6 +5,13 @@
       - tmux
   become: true
 
+- name: clone tpm repo
+  git:
+      repo: 'https://github.com/tmux-plugins/tpm.git'
+      dest: /home/{{ archlinux_username }}/.tmux/plugins/tpm
+      become: true
+      become_user: "{{ archlinux_username }}"
+
 - name: install alacritty
   pacman:
     name:

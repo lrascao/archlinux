@@ -8,6 +8,7 @@ locale-gen
 
 localectl set-locale LANG=en_US.UTF-8
 localectl set-keymap pt-latin1
+localectl set-x11-keymap pt
 echo 'KEYMAP=pt-latin1' > /etc/vconsole.conf
 
 ln -sf /usr/share/zoneinfo/Europe/Lisbon /etc/localtime

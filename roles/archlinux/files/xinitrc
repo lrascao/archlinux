@@ -30,5 +30,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+# Increase the keyboard repeat rate to something acceptable
+% r rate <first delay> <rate>
+xset r rate 100 30
+
 # Start user's environment
 exec i3

@@ -4,6 +4,7 @@
     name:
       - xorg
       - xorg-xinit
+      - xorg-xrandr
       - xterm
       - xbindkeys
       - i3-wm

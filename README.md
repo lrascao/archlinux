@@ -44,3 +44,7 @@ Run the playbook:
 ansible-playbook --ask-become-pass site.yml
 ```
 
+## Configure two monitors
+
+$ xrandr --output <output> --rotate left
+
