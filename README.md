@@ -20,7 +20,7 @@
 # $ mkdir /mnt/efi
 # $ mkdir /mnt/home
 # $ mount /dev/<sd>1 /mnt/efi
-# $ mount /dev/<sd>3 /home
+# $ mount /dev/<sd>3 /mnt/home
 
 
 # 3. fetch bootstrap shell script from github
@@ -50,3 +50,14 @@ $ xrandr --output <output> --rotate left
 
 ## Configure UHK
 /etc/udev/rules.d/50-uhk60.rules
+
+## tmux
+
+Run prefix + I to install all plugins
+
+## redefining keys
+
+# capture key code
+$ xbindkeys -k
+
+$ xbindkeys --poll-rc

@@ -5,6 +5,7 @@
       - tmux
   become: true
 
+  # run prefix + I to install all plugins
 - name: clone tpm repo
   git:
       repo: 'https://github.com/tmux-plugins/tpm.git'

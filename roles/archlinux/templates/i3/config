@@ -27,7 +27,7 @@ client.unfocused        #333333 #222222 #888888 @292d2e
 client.urgent           #333333 #FF0000 #ffffff #900000
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run -fn 'Droid Sans-{{ archlinux_window_manager_font_size }}'

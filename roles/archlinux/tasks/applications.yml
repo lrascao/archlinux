@@ -17,6 +17,7 @@
       - udisks2
       - usbutils
       - which
+      - evtest
   become: true
 
 - name: install applications
