@@ -452,12 +452,12 @@ key_bindings:
   - { key: K,        mods: Control, chars: "\x1bOA"                          }
   - { key: L,        mods: Control, chars: "\x1bOC"                          }
   - { key: Back,     mods: Command, chars: "\x1b\x7f"                        }  # delete entire line
-  - { key: LBracket,     mods: Alt|Shift,     chars: "\x7B"                  }  # left curly bracket {
-  - { key: RBracket,     mods: Alt|Shift,     chars: "\x7D"                  }  # right curly bracket }
-  - { key: LBracket,     mods: Alt,     chars: "\x5b"                        }  # left square bracket [
-  - { key: RBracket,     mods: Alt,     chars: "\x5d"                        }  # right square bracket ]
-  - { key: RBracket, mods: Shift,   chars: "\u0060"                          }  # grave accent (`)
-  - { key: Key2,     mods: Alt,     chars: "\u0040"                          }  # commercial (`)
+  # - { key: LBracket,     mods: Alt|Shift,     chars: "\x7B"                  }  # left curly bracket {
+  # - { key: RBracket,     mods: Alt|Shift,     chars: "\x7D"                  }  # right curly bracket }
+  # - { key: LBracket,     mods: Alt,     chars: "\x5b"                        }  # left square bracket [
+  # - { key: RBracket,     mods: Alt,     chars: "\x5d"                        }  # right square bracket ]
+  # - { key: RBracket, mods: Shift,   chars: "\u0060"                          }  # grave accent (`)
+  # - { key: Key2,     mods: Alt,     chars: "\u0040"                          }  # commercial (`)
   # - { key: 39,              chars: "~"                                     }  # tilde (~)
 
   # - { key: V,        mods: Command, action: Paste                        }
