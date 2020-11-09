@@ -4,6 +4,10 @@
   pacman:
     name:
     - zsh
+
+- name: install zsh
+  pacman:
+    name:
     - zsh-completions
     - zsh-syntax-highlighting
   become: true
