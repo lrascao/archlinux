@@ -147,7 +147,7 @@ bar {
 
 # No window title bars
 for_window [class="^.*"] border pixel 1
-new_windows 1pixel
+new_window 1pixel
 
 # Configure media keys
 exec xbindkeys
