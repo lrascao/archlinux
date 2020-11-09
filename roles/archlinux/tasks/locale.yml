@@ -15,14 +15,8 @@
 
 - name: 'set console keymap'
   command: localectl set-keymap pt-latin1
-  when:
-   - keymap is not none
-   - current_VC != keymap
 
 ## X11 KEYMAP
 
 - name: 'set x11 keymap'
   command: localectl set-x11-keymap pt latin1
-  when:
-    - x11_keymap is not none
-    - current_X11 != x11_keymap
