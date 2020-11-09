@@ -4,14 +4,9 @@
   pacman:
     name:
     - zsh
-
-- name: install zsh
-  pacman:
-    name:
     - zsh-completions
     - zsh-syntax-highlighting
   become: true
-  become_user: "{{ archlinux_username }}"
   notify: change shell
 
 - name: Ensure the cache folder with oh-my-zsh subfolder is present
