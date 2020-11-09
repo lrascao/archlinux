@@ -38,22 +38,24 @@ nomodeset on kernel options if:
 
 ## Usage
 
-Run the playbook:
+# Run the playbook:
 
 ```bash
 ansible-playbook --ask-become-pass site.yml
 ```
 
+# Change password for the user
+```bash
+$ passwd luis
+```
+
 ## Configure two monitors
 
+$ xrandr
 $ xrandr --output <output> --rotate left
 
 ## Configure UHK
 /etc/udev/rules.d/50-uhk60.rules
-
-## tmux
-
-Run prefix + I to install all plugins
 
 ## redefining keys
 

@@ -13,6 +13,12 @@
   become: true
   become_user: "{{ archlinux_username }}"
 
+- name: install all tmux plugins
+  command:
+      cmd: ~/.tmux/plugins/tpm/bin/install_plugins
+  become: true
+  become_user: "{{ archlinux_username }}"
+
 - name: install alacritty
   pacman:
     name:

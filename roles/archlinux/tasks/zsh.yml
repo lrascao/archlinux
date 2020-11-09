@@ -28,4 +28,4 @@
   become: true
   user:
     name: "{{ archlinux_username }}"
-    shell: /bin/zsh
+    shell: "/bin/zsh"
