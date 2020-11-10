@@ -7,7 +7,6 @@
     - zsh-completions
     - zsh-syntax-highlighting
   become: true
-  notify: change shell
 
 - name: Ensure the cache folder with oh-my-zsh subfolder is present
   file:
@@ -25,13 +24,7 @@
     state: touch
 
 - name: change user shell to zsh 
-  become: no
-  vars:
-    the_user: "{{ archlinux_username }}"
-  tasks:
-    - name: change user shell to zsh 
-      become: yes
-      user:
-        name: "{{ the_user }}"
-        shell: /bin/zsh
-
+  user:
+    name: "{{ archlinux_username }}"
+    shell: /bin/zsh
+  become: true
