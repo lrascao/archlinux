@@ -1,0 +1,7 @@
+---
+- name: Install cli packages from AUR
+  aur: name={{ item }} user={{ archlinux_username }}
+  with_items:
+    - liquidprompt
+
+
