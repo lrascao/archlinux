@@ -31,6 +31,9 @@
     - tmux.conf
     - vimrc
     - tigrc
+    - alias
+    - profiling
+    - zshrc
   become: true
   become_user: "{{ archlinux_username }}"
 

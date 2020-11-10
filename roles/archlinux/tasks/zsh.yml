@@ -8,6 +8,10 @@
     - zsh-syntax-highlighting
   become: true
 
+- name: install oh-my-zsh
+  command: 
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 - name: Ensure the cache folder with oh-my-zsh subfolder is present
   file:
     path: /home/{{ archlinux_username }}/.cache/oh-my-zsh

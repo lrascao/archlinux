@@ -1,0 +1,104 @@
+# include what you want
+export TERM=xterm-256color
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="agnoster"
+
+# Uncomment the following line to use case-sensitive completion.
+CASE_SENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+#ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# optional load time profiling
+source ~/.profiling
+
+# load all alias
+source ~/.alias
+
+# load all utils (heavy operation)
+# load liquidprompt
+# source liquidprompt/liquidprompt
+
+# # load up zsh-history-substring-search
+# source ~/utils/zsh-history-substring-search/zsh-history-substring-search.zsh
+# # bind UP and DOWN arrow keys
+# zmodload zsh/terminfo
+# bindkey "$terminfo[kcuu1]" history-substring-search-up
+# bindkey "$terminfo[kcud1]" history-substring-search-down
+# # bind P and N for EMACS mode
+# bindkey -M emacs '^P' history-substring-search-up
+# bindkey -M emacs '^N' history-substring-search-down
+# # bind k and j for VI mode
+# bindkey -M vicmd 'k' history-substring-search-up
+# bindkey -M vicmd 'j' history-substring-search-down
+
+# # add kerl to path
+# export PATH=$PATH:~/utils/kerl
+# # add kerl autocompletions
+# fpath=(~/utils/kerl/zsh_completion $fpath)
+
+# # add zsh-users's autocompletions
+# fpath=(~/utils/zsh-completions/src $fpath)
+
+# # add git-flow to path
+# export PATH=$PATH:~/utils/gitflow
+# # add git-flow's autocompletion
+# source ~/utils/git-flow-completion/git-flow-completion.zsh
+
+# # add auto completion
+# source ~/utils/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# # add zshell vim integration
+# source ~/utils/zsh-vimto/zsh-vimto.zsh
+
+# Enable zsh completion for git
+# This allows git-completion to work properly
+autoload -U compinit && compinit
+
+# Enable zmv command
+autoload -U zmv
+
+## zsh History
+HISTFILE=$HOME/.zhistory       # enable history saving on shell exit
+setopt APPEND_HISTORY          # append rather than overwrite history file.
+HISTSIZE=1000000000            # lines of history to maintain memory
+SAVEHIST=$HISTSIZE             # lines of history to maintain in history file.
+setopt HIST_EXPIRE_DUPS_FIRST  # allow dups, but expire old ones when I hit HISTSIZE
+setopt EXTENDED_HISTORY        # save timestamp and runtime information
+setopt no_share_history        # do not share history between terminal windows
+
+export PROMPT_COMMAND="history -a;"$PROMPT_COMMAND
+
+export PATH=~/bin:/usr/local/bin:$PATH
+
+# activate ESC trigger for zsh-vimto
+# bindkey -v
+
+# 10ms for key sequences
+KEYTIMEOUT=1
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=()
+
