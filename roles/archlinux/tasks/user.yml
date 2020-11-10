@@ -25,6 +25,7 @@
     owner: "{{ archlinux_username }}"
     group: users
   with_items:
+    - Xmodmap
     - xinitrc
     - alacritty.yml
     - tmux.conf
