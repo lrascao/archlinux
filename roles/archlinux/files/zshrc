@@ -37,9 +37,8 @@ source ~/.profiling
 # load all alias
 source ~/.alias
 
-# load all utils (heavy operation)
 # load liquidprompt
-# source liquidprompt/liquidprompt
+source /usr/bin/liquidprompt
 
 # # load up zsh-history-substring-search
 # source ~/utils/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -53,11 +52,6 @@ source ~/.alias
 # # bind k and j for VI mode
 # bindkey -M vicmd 'k' history-substring-search-up
 # bindkey -M vicmd 'j' history-substring-search-down
-
-# # add kerl to path
-# export PATH=$PATH:~/utils/kerl
-# # add kerl autocompletions
-# fpath=(~/utils/kerl/zsh_completion $fpath)
 
 # # add zsh-users's autocompletions
 # fpath=(~/utils/zsh-completions/src $fpath)

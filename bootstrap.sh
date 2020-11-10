@@ -14,7 +14,7 @@ ln -sf /usr/share/zoneinfo/Europe/Lisbon /etc/localtime
 
 echo $HOSTNAME > /etc/hostname
 
-pacman -Syu --noconfirm sudo git binutils gdisk dialog refind-efi dosfstools mesa linux-firmware amd-ucode xf86-video-amdgpu openssh  python ansible
+pacman -Syu --noconfirm sudo git binutils gdisk dialog refind-efi dosfstools mesa linux-firmware amd-ucode xf86-video-amdgpu openssh  python ansible inetutils
 mkdir -p /efi/EFI/Boot
 cp /usr/share/refind/refind_x64.efi /efi/EFI/Boot/bootx64.efi
 cp -r /usr/share/refind/drivers_x64/ /efi/EFI/Boot/
