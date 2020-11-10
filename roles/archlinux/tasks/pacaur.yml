@@ -1,0 +1,30 @@
+---
+
+- name: Pacman mirrorlist setup
+  copy:
+    src: mirrorlist
+    dest: /etc/pacman.d/
+
+- name: Pacman config setup
+  copy:
+    src: pacman.conf
+    dest: /etc/
+
+- name: Update pacman package cache
+  pacman:
+    update_cache: yes
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install pacaur as aur helper
+  aur: name={{ item }} user={{ user.name }} skip_pgp=true
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+  with_items:
+    - cower
+    - pacaur
+
