@@ -28,3 +28,22 @@
     upgrade: true
     update_cache: true
   become: true
+
+- name: Update pacman package cache
+  pacman:
+    update_cache: yes
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: Install pacaur as aur helper
+  aur: name={{ item }} user={{ archlinux_username }} skip_pgp=true
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+  with_items:
+    - cower
+    - pacaur
+

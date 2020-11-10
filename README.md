@@ -42,7 +42,9 @@ nomodeset on kernel options if:
 # Run the playbook:
 
 ```bash
-ansible-playbook --ask-become-pass site.yml
+$ git clone https://github.com/lrascao/archlinux
+$ git submodule update --init --recursive
+$ ansible-playbook --ask-become-pass site.yml
 ```
 
 # Change password for the user
