@@ -25,7 +25,14 @@
     state: touch
 
 - name: change user shell to zsh 
-  become: true
-  user:
-    name: "{{ archlinux_username }}"
-    shell: "/bin/zsh"
+  hosts: localhost
+  become: no
+  vars:
+    the_user: "{{ archlinux_username }}"
+  tasks:
+    - name: change user shell to zsh 
+      become: yes
+      user:
+        name: "{{ the_user }}"
+        shell: /bin/zsh
+

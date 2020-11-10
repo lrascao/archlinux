@@ -29,6 +29,7 @@
 # $ genfstab -U /mnt >> /mnt/etc/fstab
 # $ arch-chroot /mnt/
 # $ bash <(curl -s https://raw.githubusercontent.com/lrascao/archlinux/develop/bootstrap.sh)
+# $ reboot
 
 bootstrap.sh
 
@@ -63,3 +64,10 @@ $ xrandr --output <output> --rotate left
 $ xbindkeys -k
 
 $ xbindkeys --poll-rc
+
+## Todo
+
+* Download peaksea vim theme in vim playbook
+* add pbcopy/pbpaste aliases
+    * alias pbcopy='xsel --clipboard --input'
+    * alias pbpaste='xsel --clipboard --output'
