@@ -25,7 +25,6 @@
     state: touch
 
 - name: change user shell to zsh 
-  hosts: localhost
   become: no
   vars:
     the_user: "{{ archlinux_username }}"
