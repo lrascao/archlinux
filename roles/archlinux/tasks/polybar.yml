@@ -18,16 +18,13 @@
   with_items:
     - siji-git
 
-- name: POLYBAR | copy configuration files for "{{ archlinux_username }}"
-  copy:
-    src: user/.config/{{ item }}
-    dest: /home/{{ archlinux_username }}/.config/
+- name: POLYBAR | copy configuration files
+  template:
+    src: polybar/config
+    dest: /home/{{ archlinux_username }}/.config/polybar
     owner: "{{ archlinux_username }}"
-    group: "{{ archlinux_username }}"
-    mode: 0644
-    backup: yes
-  with_items:
-  - polybar
+    group: users
+  become: true
 
 - name: POLYBAR | Set +x polybar config file
   file: 
