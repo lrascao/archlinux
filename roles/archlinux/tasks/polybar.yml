@@ -5,19 +5,6 @@
     user: "{{ archlinux_username }}"
   register: installresult
 
-- name: POLYBAR | install special fonts 1/2
-  package: 
-    name: "{{ archlinux_username }}"
-    state: present
-  with_items:
-    - bdf-unifont
-  become: yes
-
-- name: POLYBAR | install special fonts 2/2
-  aur: name={{ item }} user={{ archlinux_username }}
-  with_items:
-    - siji-git
-
 - name: POLYBAR | copy configuration files
   template:
     src: polybar/config
