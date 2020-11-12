@@ -6,7 +6,9 @@
 
 - name: install pacman tools
   pacman:
-    name: pacman-contrib
+    name:
+    - pacman-contrib
+    - patch
   become: true
 
 - name: install reflector
