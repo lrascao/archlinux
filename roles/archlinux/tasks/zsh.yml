@@ -14,6 +14,11 @@
     - zsh-history-substring-search
     - zsh-autosuggestions
 
+- name: Backup .zshrc so oh-my-zsh won't fail trying to install
+  command: mv ~/.zshrc ~/zshrc
+  become: true
+  become_user: "{{ archlinux_username }}"
+
 - name: Install oh-my-zsh-git and optional dependencies from AUR
   aur: name={{ item }} user={{ archlinux_username }}
   with_items:
@@ -21,9 +26,10 @@
     - oh-my-zsh-powerline-theme-git
   register: omzinstal
 
-# - name: install oh-my-zsh
-#   command: 
-#     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+- name: Restore .zshrc 
+  command: mv ~/zshrc ~/.zshrc
+  become: true
+  become_user: "{{ archlinux_username }}"
 
 - name: Ensure the cache folder with oh-my-zsh subfolder is present
   file:

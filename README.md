@@ -31,12 +31,6 @@
 # $ bash <(curl -s https://raw.githubusercontent.com/lrascao/archlinux/develop/bootstrap.sh)
 # $ reboot
 
-bootstrap.sh
-
-nomodeset on kernel options if:
-    Fb0: switching to amdgpudrmfb from EFI VGA
-
-
 ## Usage
 
 # Run the playbook:
@@ -59,13 +53,6 @@ $ xrandr --output <output> --rotate left
 
 ## Configure UHK
 /etc/udev/rules.d/50-uhk60.rules
-
-## redefining keys
-
-# capture key code
-$ xbindkeys -k
-
-$ xbindkeys --poll-rc
 
 ## Todo
 
