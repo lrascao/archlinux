@@ -24,7 +24,6 @@
   with_items:
     - oh-my-zsh-git
     - oh-my-zsh-powerline-theme-git
-  register: omzinstal
 
 - name: Restore .zshrc 
   command: mv ~/zshrc ~/.zshrc
