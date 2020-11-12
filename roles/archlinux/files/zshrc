@@ -31,6 +31,15 @@ DISABLE_AUTO_TITLE="true"
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
 
+## zsh History
+HISTFILE=$HOME/.zhistory       # enable history saving on shell exit
+setopt APPEND_HISTORY          # append rather than overwrite history file.
+HISTSIZE=1000000000            # lines of history to maintain memory
+SAVEHIST=$HISTSIZE             # lines of history to maintain in history file.
+setopt HIST_EXPIRE_DUPS_FIRST  # allow dups, but expire old ones when I hit HISTSIZE
+setopt EXTENDED_HISTORY        # save timestamp and runtime information
+setopt no_share_history        # do not share history between terminal windows
+
 # optional load time profiling
 source ~/.profiling
 
@@ -40,18 +49,19 @@ source ~/.alias
 # load liquidprompt
 source /usr/bin/liquidprompt
 
-# # load up zsh-history-substring-search
-# source ~/utils/zsh-history-substring-search/zsh-history-substring-search.zsh
+# initialize zplug
+source ~/.zplug/init.zsh
+
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-completions"
+
 # # bind UP and DOWN arrow keys
-# zmodload zsh/terminfo
-# bindkey "$terminfo[kcuu1]" history-substring-search-up
-# bindkey "$terminfo[kcud1]" history-substring-search-down
-# # bind P and N for EMACS mode
-# bindkey -M emacs '^P' history-substring-search-up
-# bindkey -M emacs '^N' history-substring-search-down
-# # bind k and j for VI mode
-# bindkey -M vicmd 'k' history-substring-search-up
-# bindkey -M vicmd 'j' history-substring-search-down
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+# bind k and j for VI mode
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 # # add zsh-users's autocompletions
 # fpath=(~/utils/zsh-completions/src $fpath)
@@ -74,16 +84,7 @@ autoload -U compinit && compinit
 # Enable zmv command
 autoload -U zmv
 
-## zsh History
-HISTFILE=$HOME/.zhistory       # enable history saving on shell exit
-setopt APPEND_HISTORY          # append rather than overwrite history file.
-HISTSIZE=1000000000            # lines of history to maintain memory
-SAVEHIST=$HISTSIZE             # lines of history to maintain in history file.
-setopt HIST_EXPIRE_DUPS_FIRST  # allow dups, but expire old ones when I hit HISTSIZE
-setopt EXTENDED_HISTORY        # save timestamp and runtime information
-setopt no_share_history        # do not share history between terminal windows
-
-export PROMPT_COMMAND="history -a;"$PROMPT_COMMAND
+# export PROMPT_COMMAND="history -a;"$PROMPT_COMMAND
 
 export PATH=~/bin:/usr/local/bin:$PATH
 

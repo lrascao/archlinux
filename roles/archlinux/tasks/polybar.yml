@@ -14,14 +14,14 @@
   become: yes
 
 - name: POLYBAR | install special fonts 2/2
-  aur:
-    name: siji-git
-    user: "{{ archlinux_username }}"
+  aur: name={{ item }} user={{ archlinux_username }}
+  with_items:
+    - siji-git
 
 - name: POLYBAR | copy configuration files for "{{ archlinux_username }}"
   copy:
     src: user/.config/{{ item }}
-    dest: /home/{{ user }}/.config/
+    dest: /home/{{ archlinux_username }}/.config/
     owner: "{{ archlinux_username }}"
     group: "{{ archlinux_username }}"
     mode: 0644

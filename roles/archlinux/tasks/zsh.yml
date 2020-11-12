@@ -4,15 +4,12 @@
   pacman:
     name:
     - zsh
-    - zsh-completions
-    - zsh-syntax-highlighting
   become: true
 
 - name: Install zsh addons from AUR
   aur: name={{ item }} user={{ archlinux_username }}
   with_items:
-    - zsh-history-substring-search
-    - zsh-autosuggestions
+    - zplug
 
 - name: Install oh-my-zsh-git and optional dependencies from AUR
   aur: name={{ item }} user={{ archlinux_username }}
