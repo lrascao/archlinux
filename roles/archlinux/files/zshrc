@@ -55,6 +55,8 @@ ZPLUG_HOME=~/.zplug source $ZPLUG/init.zsh
 
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "laurenkt/zsh-vimto"
 
 # # bind UP and DOWN arrow keys
 zmodload zsh/terminfo
@@ -64,23 +66,9 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-# # add zsh-users's autocompletions
-# fpath=(~/utils/zsh-completions/src $fpath)
-
-# # add git-flow to path
-# export PATH=$PATH:~/utils/gitflow
-# # add git-flow's autocompletion
-# source ~/utils/git-flow-completion/git-flow-completion.zsh
-
-# # add auto completion
-# source ~/utils/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# # add zshell vim integration
-# source ~/utils/zsh-vimto/zsh-vimto.zsh
-
 # Enable zsh completion for git
 # This allows git-completion to work properly
-autoload -U compinit && compinit
+# autoload -U compinit && compinit
 
 # Enable zmv command
 autoload -U zmv
@@ -99,6 +87,6 @@ KEYTIMEOUT=1
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=()
+plugins=(git-flow)
 
 source $ZSH/oh-my-zsh.sh
