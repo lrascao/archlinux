@@ -18,8 +18,8 @@
 	ctags = !.git/hooks/ctags
 	etags = !.git/hooks/etags
 [user]
-	name = Luis Rascao
-	email = luis.rascao@gmail.com
+	name = {{ archlinux_user_real_name }}
+	email = {{ archlinux_user_email }}
 [credential]
 	helper = osxkeychain
 [log]

@@ -48,3 +48,15 @@
       - lxappearance
       - xcursor-premium
   become: true
+
+- name: copy wallpapers
+  copy:
+    src: "wallpapers/{{item}}"
+    dest: /home/{{ archlinux_username}}/Pictures/wallpapers
+    owner: "{{ archlinux_username }}"
+    group: users
+  with_items:
+    - archlinux.png
+  become: true
+  become_user: "{{ archlinux_username }}"
+
