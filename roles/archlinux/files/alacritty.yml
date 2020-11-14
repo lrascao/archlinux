@@ -452,7 +452,7 @@ key_bindings:
   - { key: K,        mods: Control, chars: "\x1bOA"                          }
   - { key: L,        mods: Control, chars: "\x1bOC"                          }
   - { key: Back,     mods: Command, chars: "\x1b\x7f"                        }  # delete entire line
-  # - { key: V,        mods: Command, action: Paste                            }
+  - { key: V,        mods: Command, action: Paste                            }
   # - { key: C,        mods: Command, action: Copy                             }
   # - { key: Q,        mods: Command, action: Quit                         }
   # - { key: W,        mods: Command, action: Quit                         }
