@@ -16,7 +16,7 @@
 
 - name: create i3 configuration directory
   file:
-    name: /home/{{ archlinux_username }}/.i3
+    name: /home/{{ archlinux_username }}/.config/i3
     state: directory
     owner: "{{ archlinux_username }}"
     group: users
@@ -25,7 +25,7 @@
 - name: configure i3
   template:
     src: i3/config
-    dest: /home/{{ archlinux_username }}/.i3/config
+    dest: /home/{{ archlinux_username }}/.config/i3/
     owner: "{{ archlinux_username }}"
     group: users
   become: true
@@ -33,7 +33,7 @@
 - name: configure i3status
   template:
     src: i3/i3status
-    dest: /home/{{ archlinux_username }}/.i3/i3status
+    dest: /home/{{ archlinux_username }}/.config/i3/
     owner: "{{ archlinux_username }}"
     group: users
   become: true
