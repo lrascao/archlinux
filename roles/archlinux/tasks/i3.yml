@@ -11,6 +11,8 @@
       - i3-wm
       - i3lock
       - dmenu
+      - xcompmgr
+      - feh
   become: true
 
 - name: create i3 configuration directory

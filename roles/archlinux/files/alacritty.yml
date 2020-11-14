@@ -123,7 +123,7 @@ debug:
   ref_test: false
 
 # Colors (iTerm 2 default theme)
-colors:
+iterm2: &iterm2
  # Default colors
  primary:
    background: '0x101421'
@@ -150,6 +150,9 @@ colors:
    magenta: '0xa47de9'
    cyan:    '0x99faf2'
    white:   '0xffffff'
+
+# point to one of the above
+colors: *iterm2
 
 # Visual Bell
 #
@@ -178,7 +181,7 @@ bell:
   duration: 0
 
 # Background opacity
-background_opacity: 1.0
+background_opacity: 0.95
 
 # Mouse bindings
 #

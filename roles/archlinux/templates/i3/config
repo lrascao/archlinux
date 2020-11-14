@@ -155,3 +155,9 @@ new_window 1pixel
 
 # Configure media keys
 exec xbindkeys
+
+# load up our pretty wallpaper
+exec feh --bg-fill 
+
+# start xcompmgr so we can terminal transparency working
+exec xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55
