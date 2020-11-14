@@ -33,5 +33,6 @@
 - name: install applications from AUR
   aur: name={{ item }} user={{ archlinux_username }}
   with_items:
+    - google-chrome
     - lastpass
 
