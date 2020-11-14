@@ -144,15 +144,8 @@ bindsym $mod+r mode "resize"
 # Lock the computer with a black screen
 # bindsym $mod+b exec "i3lock -c 000000"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
+# Start polybar to display a workspace bar (plus the system information polybar
 # finds out, if available)
-# bar {
-#     mode dock
-#     colors {
-#         active_workspace #333333 #222222 #ffffff
-#     }
-#     status_command i3status --config ~/.config/i3/i3status
-# }
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 

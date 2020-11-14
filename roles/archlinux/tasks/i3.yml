@@ -10,7 +10,6 @@
       - xsel
       - i3-wm
       - i3lock
-      - i3status
       - dmenu
   become: true
 
@@ -30,10 +29,3 @@
     group: users
   become: true
 
-- name: configure i3status
-  template:
-    src: i3/i3status
-    dest: /home/{{ archlinux_username }}/.config/i3/
-    owner: "{{ archlinux_username }}"
-    group: users
-  become: true
