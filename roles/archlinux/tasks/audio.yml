@@ -8,6 +8,7 @@
       - pavucontrol
       - pulseaudio
       - pulseaudio-alsa
+      - mpd
   become: true
 
 - name: configure x11 key bindings
