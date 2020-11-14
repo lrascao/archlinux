@@ -18,7 +18,7 @@
   become: true
   become_user: "{{ archlinux_username }}"
 
-- name: copy dotfiles
+- name: copy home dotfiles
   copy:
     src: "{{item}}"
     dest: /home/{{ archlinux_username}}/.{{item}}
