@@ -4,4 +4,5 @@
     name:
       - netctl
       - openvpn
+      - ppp
   become: true

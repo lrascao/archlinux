@@ -28,8 +28,10 @@
       - mpv
       - pcmanfm
       - viewnior
-      - ppp
   become: true
+
+- name: import spotify gpg key
+  command: curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
 
 - name: install applications from AUR
   aur: name={{ item }} user={{ archlinux_username }}
