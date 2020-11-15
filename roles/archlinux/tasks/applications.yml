@@ -28,6 +28,7 @@
       - mpv
       - pcmanfm
       - viewnior
+      - ppp
   become: true
 
 - name: install applications from AUR
@@ -35,7 +36,6 @@
   with_items:
     - google-chrome
     - lastpass
-    - ppp
     - netextender
     - spotify
     - polybar-spotify-module
