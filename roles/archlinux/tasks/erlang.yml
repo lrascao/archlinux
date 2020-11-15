@@ -1,6 +1,6 @@
 ---
 
-- name: install applications from AUR
+- name: install erlang from AUR
   aur: name={{ item }} user={{ archlinux_username }}
   with_items:
     - kerl
