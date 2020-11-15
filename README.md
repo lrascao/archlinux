@@ -57,6 +57,3 @@ $ xrandr --output <output> --rotate left
 ## Todo
 
 * Download peaksea vim theme in vim playbook
-* add pbcopy/pbpaste aliases
-    * alias pbcopy='xsel --clipboard --input'
-    * alias pbpaste='xsel --clipboard --output'
