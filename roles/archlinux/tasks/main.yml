@@ -34,3 +34,4 @@
 - import_tasks: i3.yml
 - import_tasks: polybar.yml
 - import_tasks: applications.yml
+- import_tasks: k8s.yml
