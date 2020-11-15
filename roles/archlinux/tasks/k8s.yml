@@ -5,6 +5,7 @@
   with_items:
     - virtualbox
     - virtualbox-bin
+    - virtualbox-host-modules-arch
     - kubectl
     - minikube
 
