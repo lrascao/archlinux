@@ -39,3 +39,8 @@
   retries: 10
   delay: 2
 
+- name: install yay
+  aur: name={{ item }} user={{ archlinux_username }}
+  with_items:
+    - yay
+
