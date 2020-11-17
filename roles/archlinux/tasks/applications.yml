@@ -18,6 +18,7 @@
       - usbutils
       - which
       - evtest
+      - exa
   become: true
 
 - name: install applications

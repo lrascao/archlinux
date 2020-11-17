@@ -65,7 +65,11 @@ plugins=(git-flow)
 
 # load up oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
 # load up zplug plugins
+if ! zplug check; then
+    zplug install
+fi
 zplug load
 
 # activate ESC trigger for zsh-vimto
