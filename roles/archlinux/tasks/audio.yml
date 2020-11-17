@@ -11,6 +11,12 @@
       - mpd
   become: true
 
+- name: download spotify gpg key
+  get_url:
+    url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
+    dest: /tmp/pubkey_0D811D58.gpg
+    mode: '0440'
+
 - name: import spotify gpg key
   command: gpg --import /tmp/pubkey_0D811D58.gpg
 

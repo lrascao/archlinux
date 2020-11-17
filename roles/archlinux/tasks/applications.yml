@@ -30,12 +30,6 @@
       - viewnior
   become: true
 
-- name: download spotify gpg key
-  get_url:
-    url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
-    dest: /tmp/pubkey_0D811D58.gpg
-    mode: '0440'
-
 - name: install applications from AUR
   aur: name={{ item }} user={{ archlinux_username }}
   with_items:
