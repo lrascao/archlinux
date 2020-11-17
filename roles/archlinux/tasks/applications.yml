@@ -36,16 +36,11 @@
     dest: /tmp/pubkey_0D811D58.gpg
     mode: '0440'
 
-- name: import spotify gpg key
-  command: gpg --import /tmp/pubkey_0D811D58.gpg
-
 - name: install applications from AUR
   aur: name={{ item }} user={{ archlinux_username }}
   with_items:
     - google-chrome
     - lastpass
     - netextender
-    - spotify
-    - polybar-spotify-module
     # - franz
 

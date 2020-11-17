@@ -11,6 +11,15 @@
       - mpd
   become: true
 
+- name: import spotify gpg key
+  command: gpg --import /tmp/pubkey_0D811D58.gpg
+
+- name: install AUR audio tools
+  aur: name={{ item }} user={{ archlinux_username }}
+  with_items:
+    - spotify
+    - polybar-spotify-module
+
 - name: configure x11 key bindings
   copy:
     src: xbindkeysrc
