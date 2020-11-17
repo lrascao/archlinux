@@ -1,39 +1,45 @@
+## Archlinux setup
 
-# 1. basic setup
-#
-# $ loadkeys pt-latin1
+## Bootstrap
 
-# 2. partition the disk:
-#   https://wiki.archlinux.org/index.php/GPT_fdisk#Create_a_partition_table_and_partitions
-#
-#   Create 3 partitions:
-#       1. /boot EFI system partition, 300M, [ef00]
-#       2. /root Linux x86-64 root partition, 35G, [8304]
-#       3. /home Linux partition, rest of disk, [8302]
-# $ gdisk /dev/<disk>  
-#
-# $ mkfs.fat /dev/<sd>1
-# $ mkfs.ext4 /dev/<sd>2
-# $ mkfs.ext4 /dev/<sd>3
-#
-# $ mount /dev/<sd>2 /mnt
-# $ mkdir /mnt/efi
-# $ mkdir /mnt/home
-# $ mount /dev/<sd>1 /mnt/efi
-# $ mount /dev/<sd>3 /mnt/home
+```bash
+$ loadkeys pt-latin1
+```
 
+### Partition the disk:
+   https://wiki.archlinux.org/index.php/GPT_fdisk#Create_a_partition_table_and_partitions
 
-# 3. fetch bootstrap shell script from github
-#
-# $ pacstrap /mnt base linux 
-# $ genfstab -U /mnt >> /mnt/etc/fstab
-# $ arch-chroot /mnt/
-# $ bash <(curl -s https://raw.githubusercontent.com/lrascao/archlinux/develop/bootstrap.sh)
-# $ reboot
+   Create 3 partitions:
+       1. /boot EFI system partition, 300M, [ef00]
+       2. /root Linux x86-64 root partition, 35G, [8304]
+       3. /home Linux partition, rest of disk, [8302]
+```bash
+ $ gdisk /dev/<disk>  
+
+ $ mkfs.fat /dev/<sd>1
+ $ mkfs.ext4 /dev/<sd>2
+ $ mkfs.ext4 /dev/<sd>3
+
+ $ mount /dev/<sd>2 /mnt
+ $ mkdir /mnt/efi
+ $ mkdir /mnt/home
+ $ mount /dev/<sd>1 /mnt/efi
+ $ mount /dev/<sd>3 /mnt/home
+```
+
+### Fetch bootstrap shell script from github
+
+```bash
+ $ pacstrap /mnt base linux 
+ $ genfstab -U /mnt >> /mnt/etc/fstab
+ $ arch-chroot /mnt/
+ $ bash <(curl -s https://raw.githubusercontent.com/lrascao/archlinux/develop/bootstrap.sh)
+ $ reboot
+```
 
 ## Usage
 
-# Run the playbook:
+### Run the playbook:
 
 ```bash
 $ git clone https://github.com/lrascao/archlinux

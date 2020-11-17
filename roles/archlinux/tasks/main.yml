@@ -33,6 +33,7 @@
 - import_tasks: audio.yml
 - import_tasks: i3.yml
 - import_tasks: polybar.yml
+# Several applictions
 - import_tasks: applications.yml
 - import_tasks: k8s.yml
 - import_tasks: erlang.yml
