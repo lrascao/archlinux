@@ -60,6 +60,12 @@ $ xrandr --output <output> --rotate left
 ## Configure UHK
 /etc/udev/rules.d/50-uhk60.rules
 
+## Manual install of some apps
+
+```bash
+$ yay -S franz
+```
+
 ## Todo
 
 * Download peaksea vim theme in vim playbook
