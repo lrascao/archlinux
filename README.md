@@ -63,7 +63,7 @@ $ xrandr --output <output> --rotate left
 ## Manual install of some apps
 
 ```bash
-$ yay -S franz
+$ yay -S --mflags --skipinteg spotify
 ```
 
 ## Todo
