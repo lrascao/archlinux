@@ -32,6 +32,5 @@
 - name: install AUR audio tools
   aur: name={{ item }} user={{ archlinux_username }}
   with_items:
-    - spotify
-    - polybar-spotify-module
+    - spotify-tui
 
