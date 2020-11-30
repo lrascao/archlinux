@@ -52,6 +52,12 @@ $ ansible-playbook --ask-become-pass site.yml
 $ passwd luis
 ```
 
+## Manual install of some apps
+
+```bash
+$ yay -S --mflags --skipinteg spotify
+```
+
 ## Configure two monitors
 
 $ xrandr
@@ -59,12 +65,6 @@ $ xrandr --output <output> --rotate left
 
 ## Configure UHK
 /etc/udev/rules.d/50-uhk60.rules
-
-## Manual install of some apps
-
-```bash
-$ yay -S --mflags --skipinteg spotify
-```
 
 ## Todo
 

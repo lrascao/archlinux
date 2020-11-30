@@ -3,7 +3,19 @@
 - name: install k8s from AUR
   aur: name={{ item }} user={{ archlinux_username }}
   with_items:
+    - linux-headers
+    - dkms
     - virtualbox-bin
+    - virtualbox-guest-utils
+    - virtualbox-guest-dkmc
+    - virtualbox-ext-vnc
+    - virtualbox-ext-oracle
     - kubectl
     - minikube
 
+- name: enable VirtualBox daemon
+  systemd:
+    name: vboxweb.service
+    state: started
+    enabled: true
+  become: true
