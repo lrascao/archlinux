@@ -1,18 +1,22 @@
 ---
 
-- name: install utilities
+- name: install virtual box from AUR
+  aur: name={{ item }} user={{ archlinux_username }}
+  with_items:
+    - virtualbox-bin
+    - virtualbox-ext-oracle
+
+- name: install virtual box addons
   pacman:
     name:
     - virtualbox-guest-utils
     - virtualbox-ext-vnc
+    - virtualbox-guest-dkms
   become: true
 
 - name: install k8s from AUR
   aur: name={{ item }} user={{ archlinux_username }}
   with_items:
-    - virtualbox-bin
-    - virtualbox-ext-oracle
-    - virtualbox-guest-dkms
     - kubectl
     - minikube
 
