@@ -26,6 +26,7 @@
 # Install a good text editor
 - import_tasks: vim.yml
 # Install some programming languages
+- import_tasks: devtools.yml
 - import_tasks: c-family.yml
 - import_tasks: python.yml
 - import_tasks: rust.yml
