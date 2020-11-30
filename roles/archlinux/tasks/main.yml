@@ -4,6 +4,7 @@
 - import_tasks: firmware.yml
 - import_tasks: filesystem.yml
 - import_tasks: network.yml
+- import_tasks: system.yml
 - import_tasks: docker.yml
 # Configure a user
 - import_tasks: user.yml

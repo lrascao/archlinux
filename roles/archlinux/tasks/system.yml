@@ -1,0 +1,9 @@
+---
+
+- name: install system components
+  pacman:
+    name:
+    - linux-headers
+    - dkms
+  become: true
+
