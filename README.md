@@ -59,6 +59,12 @@ $ passwd luis
 $ yay -S --mflags --skipinteg spotify
 ```
 
+## Reboot
+
+```bash
+$ sudo reboot now
+```
+
 ## Configure two monitors
 
 $ xrandr
