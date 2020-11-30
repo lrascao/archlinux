@@ -11,7 +11,7 @@ $ loadkeys pt-latin1
 
    Create 3 partitions:
        1. /boot EFI system partition, 300M, [ef00]
-       2. /root Linux x86-64 root partition, 35G, [8304]
+       2. /root Linux x86-64 root partition, 50G, [8304]
        3. /home Linux partition, rest of disk, [8302]
 ```bash
  $ gdisk /dev/<disk>  
@@ -34,6 +34,7 @@ $ loadkeys pt-latin1
  $ genfstab -U /mnt >> /mnt/etc/fstab
  $ arch-chroot /mnt/
  $ bash <(curl -s https://raw.githubusercontent.com/lrascao/archlinux/develop/bootstrap.sh)
+ $ fatlabel /dev/<sd>1 Archlinux
  $ reboot
 ```
 
