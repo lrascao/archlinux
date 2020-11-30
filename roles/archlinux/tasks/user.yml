@@ -52,6 +52,7 @@
     - alias
     - profiling
     - zshrc
+    - gdbinit
   become: true
   become_user: "{{ archlinux_username }}"
 
