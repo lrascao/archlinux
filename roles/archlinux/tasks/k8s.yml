@@ -4,7 +4,6 @@
   pacman:
     name:
     - virtualbox-guest-utils
-    - virtualbox-guest-dkmc
     - virtualbox-ext-vnc
   become: true
 
@@ -13,6 +12,7 @@
   with_items:
     - virtualbox-bin
     - virtualbox-ext-oracle
+    - virtualbox-guest-dkms
     - kubectl
     - minikube
 
