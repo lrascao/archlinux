@@ -1,0 +1,7 @@
+---
+- name: install Go development tools
+  pacman:
+    name:
+      - go
+  become: true
+

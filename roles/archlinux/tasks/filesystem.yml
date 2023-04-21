@@ -1,0 +1,8 @@
+---
+- name: install filesystem tools
+  pacman:
+    name:
+      - cryptsetup
+      - e2fsprogs
+      - fuse
+  become: true

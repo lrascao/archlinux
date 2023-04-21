@@ -1,0 +1,39 @@
+---
+- name: install utilities
+  pacman:
+    name:
+      - aria2
+      - curl
+      - gvfs
+      - htop
+      - httpie
+      - iotop
+      - jq
+      - less
+      - nmap
+      - ripgrep
+      - rsync
+      - shellcheck
+      - udisks2
+      - usbutils
+      - which
+      - evtest
+      - exa
+  become: true
+
+- name: install applications
+  pacman:
+    name:
+      - chromium
+      - evince
+      - mpv
+      - pcmanfm
+      - viewnior
+  become: true
+
+- name: install applications from AUR
+  aur: name={{ item }} user={{ archlinux_username }}
+  with_items:
+    - yay
+    - google-chrome
+

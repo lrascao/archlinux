@@ -1,0 +1,62 @@
+---
+- name: install fonts
+  pacman:
+    name:
+      - adobe-source-code-pro-fonts
+      - adobe-source-han-sans-jp-fonts
+      - noto-fonts
+      - noto-fonts-emoji
+      - powerline-fonts
+      - ttf-dejavu
+      - ttf-droid
+      - ttf-inconsolata
+      - ttf-liberation
+  become: true
+
+- name: create user fonts dir
+  file:
+    name: /home/{{ archlinux_username }}/.local/share/fonts
+    state: directory
+    owner: "{{ archlinux_username }}"
+    group: users
+  become: true
+  become_user: "{{ archlinux_username }}"
+
+- name: copy fonts
+  copy:
+    src: "{{item}}"
+    dest: /home/{{ archlinux_username}}/.local/share/{{item}}
+    owner: "{{ archlinux_username }}"
+    group: users
+  with_items:
+    - fonts/monaco.ttf
+  become: true
+  become_user: "{{ archlinux_username }}"
+
+- name: install display configuration tools
+  pacman:
+    name:
+      - arandr
+      - lxrandr
+  become: true
+
+- name: install GUI themes
+  pacman:
+    name:
+      - elementary-icon-theme
+      - gnome-themes-extra
+      - lxappearance
+      # - xcursor-premium
+  become: true
+
+- name: copy wallpapers
+  copy:
+    src: "wallpapers/{{item}}"
+    dest: /home/{{ archlinux_username}}/Pictures/wallpapers/
+    owner: "{{ archlinux_username }}"
+    group: users
+  with_items:
+    - archlinux.png
+  become: true
+  become_user: "{{ archlinux_username }}"
+

@@ -1,0 +1,77 @@
+---
+- name: create normal user
+  user:
+    name: "{{ archlinux_username }}"
+    create_home: true
+    group: users
+    groups:
+      - wheel
+      - docker
+  become: true
+
+- name: create scripts directory
+  file:
+    name: /home/{{ archlinux_username }}/bin
+    state: directory
+    owner: "{{ archlinux_username }}"
+    group: users
+  become: true
+  become_user: "{{ archlinux_username }}"
+
+- name: create Pictures directory
+  file:
+    name: /home/{{ archlinux_username }}/Pictures
+    state: directory
+    owner: "{{ archlinux_username }}"
+    group: users
+  become: true
+  become_user: "{{ archlinux_username }}"
+
+- name: create Downloads directory
+  file:
+    name: /home/{{ archlinux_username }}/Downloads
+    state: directory
+    owner: "{{ archlinux_username }}"
+    group: users
+  become: true
+  become_user: "{{ archlinux_username }}"
+
+- name: copy home dotfiles
+  copy:
+    src: "{{item}}"
+    dest: /home/{{ archlinux_username}}/.{{item}}
+    owner: "{{ archlinux_username }}"
+    group: users
+  with_items:
+    - Xmodmap
+    - xinitrc
+    - alacritty.yml
+    - tmux.conf
+    - vimrc
+    - tigrc
+    - alias
+    - profiling
+    - zshrc
+    - gdbinit
+  become: true
+  become_user: "{{ archlinux_username }}"
+
+- name: template home dotfiles
+  template:
+    src: "{{item}}"
+    dest: /home/{{ archlinux_username}}/.{{item}}
+    owner: "{{ archlinux_username }}"
+    group: users
+  with_items:
+    - Xresources
+    - gitconfig
+  become: true
+  become_user: "{{ archlinux_username }}"
+
+- name: install shell colorschemes
+  git:
+    repo: "https://github.com/dharmab/base16-shell.git"
+    dest: /home/{{ archlinux_username }}/.config/base16-shell
+    version: master
+  become: true
+  become_user: "{{ archlinux_username }}"

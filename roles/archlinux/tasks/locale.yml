@@ -1,0 +1,22 @@
+---
+
+- name: 'install lbxkbcommon package'
+  package:
+    name: libxkbcommon
+    state: present
+  when: x11_keymap is not none
+
+- name: 'start systemd-localed in background'
+  command: /usr/lib/systemd/systemd-localed
+  check_mode: false
+  changed_when: false
+  async: 10
+  poll: 0
+
+- name: 'set console keymap'
+  command: localectl set-keymap pt-latin1
+
+## X11 KEYMAP
+
+- name: 'set x11 keymap'
+  command: localectl set-x11-keymap pt latin1

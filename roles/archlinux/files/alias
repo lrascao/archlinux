@@ -1,0 +1,6 @@
+alias dir='ls -lisaF --color=auto'
+alias g='git'
+alias h='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
+alias ll='ls -lisaF --color=auto'
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'

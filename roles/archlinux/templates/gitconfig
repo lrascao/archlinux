@@ -1,0 +1,34 @@
+[color]
+	ui = auto
+[advice]
+	statusHints = false
+[diff]
+	mnemonicprefix = true
+[merge]
+	stat = true
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim
+	abbrev = 8
+    pager = less -XFR
+[alias]
+	ls = log --color --graph --pretty=format:'%Cred%h%Creset \t -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' \t --abbrev-commit
+	co = checkout
+	s = status
+	ctags = !.git/hooks/ctags
+	etags = !.git/hooks/etags
+[user]
+	name = {{ archlinux_user_real_name }}
+	email = {{ archlinux_user_email }}
+[credential]
+	helper = osxkeychain
+[log]
+	abbrevCommit = yes
+[push]
+	default = simple
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[commit]
+	template = ~/.stCommitMsg
