@@ -15,7 +15,16 @@ ln -sf /usr/share/zoneinfo/Europe/Lisbon /etc/localtime
 
 echo $HOSTNAME > /etc/hostname
 
-pacman -Syu --noconfirm sudo git binutils gdisk dialog refind dosfstools mesa linux-firmware amd-ucode xf86-video-amdgpu openssh python ansible inetutils which
+hwclock --systohc --utc
+
+echo en_US.UTF-8 UTF-8 >> /etc/locale.gen
+locale-gen
+
+pacman -Syu --noconfirm sudo git binutils gdisk dialog refind dosfstools mesa linux-firmware amd-ucode xf86-video-amdgpu openssh python ansible inetutils which grub efibootmgr os-prober
+
+grub-install --target=x86_64-efi --bootloader-id=grub --efi-directory=/efi
+grub-mkconfig -o /boot/grub/grub.cfg
+
 mkdir -p /efi/EFI/Boot
 cp /usr/share/refind/refind_x64.efi /efi/EFI/Boot/bootx64.efi
 cp -r /usr/share/refind/drivers_x64/ /efi/EFI/Boot/
@@ -50,6 +59,9 @@ ssh-keygen -A
 
 echo "Set root password:"
 passwd
+
+# disable pc speaker
+modprobe -r pcspkr
 
 echo "run: 'fatlabel /dev/<sd>1 ArchLinux'"
 

@@ -10,6 +10,12 @@ https://archlinux.org/download/
 $ loadkeys pt-latin1
 ```
 
+### (optional) set up Wifi
+
+```bash
+$ wpa_supplicant -B -i INTERFACE -c <(wpa_passphrase SSID PASSPHRASE)
+```
+
 ### Partition the disk:
    https://wiki.archlinux.org/index.php/GPT_fdisk#Create_a_partition_table_and_partitions
 
