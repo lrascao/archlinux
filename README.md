@@ -50,7 +50,11 @@ $ wpa_supplicant -B -i INTERFACE -c <(wpa_passphrase SSID PASSPHRASE)
  $ reboot
 ```
 
-## Usage
+### Change password for the user
+```bash
+$ useradd -m -G sys,wheel,users,adm,log -s /bin/bash luis
+$ passwd luis
+```
 
 ### Run the playbook:
 
@@ -60,31 +64,31 @@ $ git submodule update --init --recursive
 $ ansible-playbook --ask-become-pass site.yml
 ```
 
-# Change password for the user
-```bash
-$ passwd luis
-```
-
-## Manual install of some apps
+### Manual install of some apps
 
 ```bash
 $ yay -S --mflags --skipinteg spotify
 ```
 
-## Reboot
+### Reboot
 
 ```bash
 $ sudo reboot now
 ```
 
-## Configure two monitors
+### Configure two monitors
 
+```bash
 $ xrandr
 $ xrandr --output <output> --rotate left
+```
 
-## Configure UHK
+### Configure UHK
+
+```bash
 /etc/udev/rules.d/50-uhk60.rules
+```
 
-## Todo
+### Todo
 
 * Download peaksea vim theme in vim playbook
