@@ -4,6 +4,7 @@
     name: polybar
     user: "{{ archlinux_username }}"
   register: installresult
+  become: true
 
 - name: POLYBAR | copy configuration files 1/2
   template:

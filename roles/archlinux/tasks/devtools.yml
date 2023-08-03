@@ -4,4 +4,5 @@
   aur: name={{ item }} user={{ archlinux_username }}
   with_items:
     - pwndbg
+  become: true
 

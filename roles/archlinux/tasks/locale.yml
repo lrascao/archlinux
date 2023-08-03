@@ -5,6 +5,7 @@
     name: libxkbcommon
     state: present
   when: x11_keymap is not none
+  become: true
 
 - name: 'start systemd-localed in background'
   command: /usr/lib/systemd/systemd-localed
@@ -15,8 +16,10 @@
 
 - name: 'set console keymap'
   command: localectl set-keymap pt-latin1
+  become: true
 
 ## X11 KEYMAP
 
 - name: 'set x11 keymap'
   command: localectl set-x11-keymap pt latin1
+  become: true

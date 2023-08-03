@@ -50,7 +50,7 @@ $ wpa_supplicant -B -i INTERFACE -c <(wpa_passphrase SSID PASSPHRASE)
  $ reboot
 ```
 
-### Change password for the user
+### Add user 'luis' and add it to 'wheel' group
 ```bash
 $ useradd -m -G sys,wheel,users,adm,log -s /bin/bash luis
 $ passwd luis

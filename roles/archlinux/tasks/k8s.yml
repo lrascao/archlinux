@@ -5,4 +5,5 @@
   with_items:
     - kubectl
     - kind
+  become: true
 

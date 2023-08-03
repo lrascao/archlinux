@@ -36,4 +36,5 @@
   with_items:
     - yay
     - google-chrome
+  become: true
 

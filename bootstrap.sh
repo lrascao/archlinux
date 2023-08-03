@@ -68,6 +68,9 @@ ssh-keygen -A
 # disable pc speaker
 rmmod pcspkr
 
+# add wheel group to sudoers
+sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
+
 echo "Set root password:"
 passwd
 

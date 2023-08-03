@@ -12,6 +12,7 @@
     - zplug
     - oh-my-zsh-git
     - oh-my-zsh-powerline-theme-git
+  become: true
 
 - name: Ensure the cache folder with oh-my-zsh subfolder is present
   file:
@@ -20,6 +21,7 @@
     group: "users"
     state: directory
     mode: 0755
+  become: true
 
 - name: Ensure the last working dir file for oh-my-zsh is present
   file:

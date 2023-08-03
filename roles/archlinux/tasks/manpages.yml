@@ -4,3 +4,4 @@
     name:
       - man-db
       - man-pages
+  become: true
