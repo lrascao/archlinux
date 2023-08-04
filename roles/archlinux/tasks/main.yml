@@ -23,13 +23,14 @@
 - import_tasks: terminal.yml
 - import_tasks: zsh.yml
 - import_tasks: cli.yml
-# Install a good text editor
-- import_tasks: vim.yml
 # Install some programming languages
 - import_tasks: devtools.yml
 - import_tasks: c-family.yml
 - import_tasks: python.yml
 - import_tasks: rust.yml
+- import_tasks: golang.yml
+# Install a good text editor
+- import_tasks: vim.yml
 # Install the desktop
 - import_tasks: gui.yml
 - import_tasks: audio.yml

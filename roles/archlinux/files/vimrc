@@ -15,12 +15,12 @@ set nocompatible        " don't bother trying to pretend you're vi
 "
 " Colors {{{
 syntax enable			" enable syntax highlighting
-" colorscheme peaksea		" located at ~/.vim/colors, other good ones, solarized, molokai
+colorscheme peaksea		" located at ~/.vim/colors, other good ones, solarized, molokai
                         " install new colour scheme vim files at ~/.vim/colors
 set termguicolors 		" terminal vim will use full 24-bit colors
 set background=dark
 " molokai: curl -fLo ~/.vim/colors/molokai.vim --create-dirs https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
-" peaksea: curl -fLo ~/.vim/colors/molokai.vim --create-dirs https://raw.githubusercontent.com/vim-scripts/peaksea/master/colors/peaksea.vim
+" peaksea: curl -fLo ~/.vim/colors/peaksea.vim --create-dirs https://raw.githubusercontent.com/vim-scripts/peaksea/master/colors/peaksea.vim
 "  }}}
 "
 "  Misc {{{
@@ -48,7 +48,7 @@ set nocursorline          	" highlight current line
 set lazyredraw              " redraw only when we need to.
 set showmatch               " higlight matching parenthesis
 set mat=2                   " How many tenths of a second to blink when matching brackets
-" set fillchars+=vert:┃       " Characters to fill the statuslines and vertical separators.
+"set fillchars+=vert:|       " Characters to fill the statuslines and vertical separators.
 set foldcolumn=1            " Add a bit extra margin to the left
 set encoding=utf8           " Set utf8 as standard encoding and en_US as the standard language
 set ffs=unix,dos,mac        " Use Unix as the standard file type
@@ -165,7 +165,7 @@ let g:netrw_winsize = 25        " file explorer width percentage
 if exists('$TMUX')
     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-    set term=xterm-256color
+    " set term=xterm-256color
 else
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
@@ -198,6 +198,12 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tommcdo/vim-exchange'
+Plug 'rust-lang/rust.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'elixir-editors/vim-elixir'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'jjo/vim-cue'
 call plug#end()
 " }}}
 "
@@ -220,6 +226,37 @@ let g:airline_section_warning = ''
 nmap <silent> "" :call Toggle_Surround('"')<cr>
 nmap <silent> '' :call Toggle_Surround('''')<cr>
 " }}}
+"
+"
+" syntastic {{{
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" }}}
+"
+"
+" rust.vim {{{
+let g:syntastic_rust_checkers = ['cargo']
+" }}}
+"
+"
+" vim-simple-complete {{{
+set complete-=t
+set complete-=i
+" }}}
+"
+"
+" ctrlp {{{
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<C-e>'],
+    \ 'AcceptSelection("t")': ['<Cr>'],
+    \}
+" }}}
+"
 "
 " Helper functions
 "
