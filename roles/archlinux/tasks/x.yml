@@ -1,0 +1,17 @@
+---
+- name: configure x11 key bindings
+  copy:
+    src: X/xbindkeysrc
+    dest: /home/{{ archlinux_username }}/.xbindkeysrc
+    owner: "{{ archlinux_username }}"
+    group: users
+  become: true
+  become_user: "{{ archlinux_username }}"
+
+- name: configure touchpad
+  copy:
+    src: X/90-touchpad.conf
+    dest: /etc/X11/xorg.conf.d
+    owner: root
+    group: root
+  become: true

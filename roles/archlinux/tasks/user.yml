@@ -43,8 +43,6 @@
     owner: "{{ archlinux_username }}"
     group: users
   with_items:
-    - Xmodmap
-    - xinitrc
     - alacritty.yml
     - tmux.conf
     - vimrc
@@ -53,6 +51,18 @@
     - profiling
     - zshrc
     - gdbinit
+  become: true
+  become_user: "{{ archlinux_username }}"
+
+- name: copy X home dotfiles
+  copy:
+    src: "X/{{item}}"
+    dest: /home/{{ archlinux_username}}/.{{item}}
+    owner: "{{ archlinux_username }}"
+    group: users
+  with_items:
+    - Xmodmap
+    - xinitrc
   become: true
   become_user: "{{ archlinux_username }}"
 

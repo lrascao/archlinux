@@ -11,17 +11,3 @@
       - mpd
   become: true
 
-- name: configure x11 key bindings
-  copy:
-    src: xbindkeysrc
-    dest: /home/{{ archlinux_username }}/.xbindkeysrc
-    owner: "{{ archlinux_username }}"
-    group: users
-  become: true
-  become_user: "{{ archlinux_username }}"
-
-# - name: install AUR audio tools
-#   aur: name={{ item }} user={{ archlinux_username }}
-#   with_items:
-#     - spotify-tui-bin
-

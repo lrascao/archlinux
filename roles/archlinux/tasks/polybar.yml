@@ -22,7 +22,7 @@
     group: users
   become: true
 
-- name: POLYBAR | Set u+x polybar config file
+- name: POLYBAR | Set u+x polybar launch file
   file: 
     path: /home/{{ archlinux_username }}/.config/polybar/launch.sh
     mode: "u+x"

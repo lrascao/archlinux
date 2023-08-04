@@ -46,6 +46,7 @@ echo 'options radeon cik_support=0' > /etc/modprobe.d/radeon.conf
 # https://wiki.archlinux.org/title/Mkinitcpio#Image_creation_and_activation
 mkinitcpio -p linux
 
+# add networkctl files for both wired and wireless
 echo '[Match]
 Name=en*
 
@@ -65,8 +66,9 @@ systemctl start systemd-resolved
 
 ssh-keygen -A
 
-# disable pc speaker
+# disable pc speaker module and blacklist it
 rmmod pcspkr
+echo 'blacklist pcspkr' > /etc/modprobe.d/blacklist.conf
 
 # add wheel group to sudoers
 sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers

@@ -21,7 +21,7 @@
 	name = {{ archlinux_user_real_name }}
 	email = {{ archlinux_user_email }}
 [credential]
-	helper = osxkeychain
+	;helper = osxkeychain
 [log]
 	abbrevCommit = yes
 [push]
@@ -31,4 +31,4 @@
 	smudge = git lfs smudge %f
 	required = true
 [commit]
-	template = ~/.stCommitMsg
+	;template = ~/.stCommitMsg
