@@ -68,13 +68,13 @@ font:
   normal:
     family: Monaco
     # Style can be specified to pick a specific face.
-    # style: Regular
+    style: Regular
 
   # The bold font face
   bold:
     family: Monaco
     # Style can be specified to pick a specific face.
-    # style: Bold
+    style: Bold
 
   # The italic font face
   italic:
@@ -83,7 +83,7 @@ font:
     # style: Italic
 
   # Point size of the font
-  size: 12.0
+  size: 10.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -339,8 +339,8 @@ scrolling:
 #   - ~AppKeypad
 #   - AppKeypad
 key_bindings:
-  - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                             }
+  - { key: Paste,                   action: Paste                            }
   - { key: L,        mods: Control, action: ClearLogNotice                   }
   - { key: L,        mods: Control, chars: "\x0c"                            }
   - { key: Home,     mods: Alt,     chars: "\x1b[1;3H"                       }

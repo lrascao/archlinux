@@ -44,6 +44,7 @@ ZPLUG_HOME=~/.zplug source $ZPLUG/init.zsh
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting"
 zplug "laurenkt/zsh-vimto"
 
 # # bind UP and DOWN arrow keys

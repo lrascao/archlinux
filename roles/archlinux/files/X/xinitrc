@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Configure PT keyboard
+exec setxkbmap -layout pt
+
 # Load system-wide settings
 sysresources=/etc/X11/xinit/.Xresources
 if [ -f $sysresources ]; then
